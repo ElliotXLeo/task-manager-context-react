@@ -5,6 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 import Header from './components/sections/Header';
+import TasksList from './components/tasks/TasksList';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/new-task" element={<h1>New Task</h1>} />
-        <Route index element={<h1>Task Manager Context React</h1>} />
+        <Route index element={<TasksList />} />
         <Route path="*" element={<h1>404</h1>} />
       </Routes>
     </Router>
