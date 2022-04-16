@@ -7,17 +7,20 @@ import {
 import Header from './components/sections/Header';
 import TasksList from './components/tasks/TasksList';
 import TasksForm from './components/tasks/TasksForm';
+import { ContextProvider } from './context/GlobalContext';
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/new-task" element={<TasksForm />} />
-        <Route index element={<TasksList />} />
-        <Route path="*" element={<h1>404</h1>} />
-      </Routes>
-    </Router>
+    <ContextProvider>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/new-task" element={<TasksForm />} />
+          <Route index element={<TasksList />} />
+          <Route path="*" element={<h1>404</h1>} />
+        </Routes>
+      </Router>
+    </ContextProvider>
   );
 }
 
