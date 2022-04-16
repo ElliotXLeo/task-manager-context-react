@@ -6,6 +6,8 @@ const TasksList = () => {
   const context = useContext(GlobalContext);
   const { tasks } = context;
 
+  console.log(context);
+
   return (
     <section className="flex justify-center">
       <div className="flex flex-col gap-4 w-6/12 py-4">

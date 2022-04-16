@@ -15,7 +15,7 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/new-task" element={<TasksForm />} />
+          <Route path="/create-task" element={<TasksForm />} />
           <Route index element={<TasksList />} />
           <Route path="*" element={<h1>404</h1>} />
         </Routes>

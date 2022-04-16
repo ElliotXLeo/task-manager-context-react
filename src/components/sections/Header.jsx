@@ -13,7 +13,7 @@ const Header = () => {
         📋 Taks 📋
       </NavLink>
       <NavLink
-        to="/new-task"
+        to="/create-task"
         className={({ isActive }) => {
           return `flex items-center gap-1 bg-green-500 hover:bg-green-600 font-semibold rounded py-2 px-4 ${(isActive && "text-yellow-300")}`;
         }}

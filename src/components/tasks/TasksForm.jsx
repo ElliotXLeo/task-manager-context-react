@@ -1,10 +1,13 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalContext";
 
 const TasksForm = () => {
 
+  const navigate = useNavigate();
+
   const context = useContext(GlobalContext);
-  console.log(context);
+  const { createTask } = context;
 
   const [task, setTask] = useState({
     title: '',
@@ -20,7 +23,8 @@ const TasksForm = () => {
 
   const handleSubtmit = (e) => {
     e.preventDefault();
-    console.log(task);
+    createTask(task);
+    navigate('/');
   }
 
   return (
