@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
+import { IoMdAdd } from 'react-icons/io';
 
 const Header = () => {
   return (
-    <header className="flex items-center py-2">
-      {/* <NavLink to="/" className={`text-2xl`}> */}
+    <header className="flex items-center justify-between py-2">
       <NavLink
         to="/"
         className={({ isActive }) => {
@@ -15,12 +15,11 @@ const Header = () => {
       <NavLink
         to="/new-task"
         className={({ isActive }) => {
-          return `flex-1 text-right px-4 py-2 ${(isActive && "text-yellow-300")}`;
+          return `flex items-center gap-1 bg-green-500 hover:bg-green-600 font-semibold rounded py-2 px-4 ${(isActive && "text-yellow-300")}`;
         }}
       >
-        <button className="bg-green-500 hover:bg-green-600 font-semibold rounded py-2 px-4">
-          Add Task
-        </button>
+        <IoMdAdd />
+        Add Task
       </NavLink>
     </header>
   );
