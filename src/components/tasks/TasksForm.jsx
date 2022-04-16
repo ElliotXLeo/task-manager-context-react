@@ -40,6 +40,7 @@ const TasksForm = () => {
           placeholder="Title"
           className="p-2 outline-none bg-transparent bg-gray-800"
           onChange={handleChange}
+          required
         />
         <textarea
           type="text"
@@ -47,6 +48,7 @@ const TasksForm = () => {
           placeholder="Description"
           className="p-2 outline-none bg-transparent bg-gray-800"
           onChange={handleChange}
+          required
         />
         <button className="bg-green-600 hover:bg-green-500 p-2">
           Create
