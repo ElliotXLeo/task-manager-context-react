@@ -6,14 +6,14 @@ const initialState = {
   tasks: [
     {
       id: '1',
-      title: 'Title 1',
-      description: 'Description 1',
+      title: 'Actualizar GitHub',
+      description: 'Actualizar documentación de GitHub',
       done: false
     },
     {
       id: '2',
-      title: 'Title 2',
-      description: 'Description 2',
+      title: 'Aprender Redux',
+      description: 'Aprender sobre el manejo del estado global con Reduxs',
       done: false
     }
   ]

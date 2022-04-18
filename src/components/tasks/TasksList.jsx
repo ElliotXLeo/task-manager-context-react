@@ -15,7 +15,7 @@ const TasksList = () => {
           return (
             <div key={id} className="flex items-center justify-between bg-gray-700 p-4 rounded">
               <div>
-                <h4>{title}</h4>
+                <h4 className="font-semibold text-yellow-300">{title}</h4>
                 <h5>{description}</h5>
                 <button
                   className="bg-purple-600 hover:bg-purple-500 py-2 px-4"
