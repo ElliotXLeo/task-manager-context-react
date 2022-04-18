@@ -1,24 +1,31 @@
 const tasksReducers = (state, action) => {
-  console.log(state, action);
+  const { tasks } = state;
+  const { type, payload } = action;
 
-  switch (action.type) {
+  switch (type) {
     case 'tasks/create':
       return ({
-        tasks: [...state.tasks, action.payload]
+        tasks: [...tasks, payload]
       });
     case 'tasks/update':
       return ({
-        tasks: [...state.tasks.map((task) => {
-          if (task.id === action.payload.task.id) {
-            task = action.payload.task
+        tasks: [...tasks.map((task) => {
+          if (task.id === payload.task.id) {
+            task = payload.task
           };
           return task
         })]
       });
     case 'tasks/delete':
       return ({
-        tasks: [...state.tasks.filter((task) => {
-          return (task.id !== action.payload);
+        tasks: [...tasks.filter((task) => {
+          return (task.id !== payload);
+        })]
+      });
+    case 'tasks/toggle-done':
+      return ({
+        tasks: [...tasks.map((task) => {
+          return task.id === payload ? { ...task, done: !task.done } : task
         })]
       });
     default:

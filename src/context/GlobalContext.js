@@ -30,7 +30,8 @@ export const ContextProvider = ({ children }) => {
       type: 'tasks/create',
       payload: {
         ...task,
-        id: v4()
+        id: v4(),
+        done: false
       }
     });
   }
@@ -51,13 +52,21 @@ export const ContextProvider = ({ children }) => {
     });
   }
 
+  const toggleDoneTask = (id) => {
+    dispatch({
+      type: 'tasks/toggle-done',
+      payload: id
+    });
+  }
+
   return (
     <GlobalContext.Provider
       value={{
         tasks: state.tasks,
         createTask,
         updateTask,
-        deleteTask
+        deleteTask,
+        toggleDoneTask
       }}
     >
       {children}
