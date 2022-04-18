@@ -14,7 +14,8 @@ const TasksForm = () => {
   const [task, setTask] = useState({
     id: '',
     title: '',
-    description: ''
+    description: '',
+    done: false
   })
 
   const { title, description } = task;
@@ -42,11 +43,12 @@ const TasksForm = () => {
     });
 
     if (Object.keys(taskToEdit).length > 0) {
-      const { id, title, description } = taskToEdit[0];
+      const { id, title, description, done } = taskToEdit[0];
       setTask({
         id,
         title,
-        description
+        description,
+        done
       });
     }
   }, [tasks, params.taskId]);

@@ -2,7 +2,7 @@ import { createContext, useReducer, } from "react";
 import { v4 } from "uuid";
 import tasksReducers from "./reducers/tasksReducers";
 
-const initialState = {
+let initialState = {
   tasks: [
     {
       id: '1',
@@ -13,11 +13,18 @@ const initialState = {
     {
       id: '2',
       title: 'Aprender Redux',
-      description: 'Aprender sobre el manejo del estado global con Reduxs',
+      description: 'Aprender sobre el manejo del estado global con Redux',
       done: false
     }
   ]
 };
+
+let tasksTaksManager = JSON.parse(localStorage.getItem('tasks-task-manager'));
+if (tasksTaksManager) {
+  initialState = JSON.parse(localStorage.getItem('tasks-task-manager'));
+} else {
+  localStorage.setItem('tasks-task-manager', JSON.stringify(initialState));
+}
 
 export const GlobalContext = createContext();
 
@@ -30,8 +37,7 @@ export const ContextProvider = ({ children }) => {
       type: 'tasks/create',
       payload: {
         ...task,
-        id: v4(),
-        done: false
+        id: v4()
       }
     });
   }

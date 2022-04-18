@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalContext";
 
@@ -6,6 +6,13 @@ const TasksList = () => {
 
   const context = useContext(GlobalContext);
   const { tasks, deleteTask, toggleDoneTask } = context;
+  console.log(tasks);
+  useEffect(() => {
+    console.log('change');
+    localStorage.setItem('tasks-task-manager', JSON.stringify({
+      tasks
+    }));
+  }, [tasks])
 
   return (
     <section className="flex justify-center">
