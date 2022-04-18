@@ -5,15 +5,15 @@ import tasksReducers from "./reducers/tasksReducers";
 const initialState = {
   tasks: [
     {
-      id: 1,
-      title: "Title 1",
-      description: "Description 1",
+      id: '1',
+      title: 'Title 1',
+      description: 'Description 1',
       done: false
     },
     {
-      id: 2,
-      title: "Title 2",
-      description: "Description 2",
+      id: '2',
+      title: 'Title 2',
+      description: 'Description 2',
       done: false
     }
   ]
@@ -27,10 +27,19 @@ export const ContextProvider = ({ children }) => {
 
   const createTask = (task) => {
     dispatch({
-      type: 'tasks/add',
+      type: 'tasks/create',
       payload: {
-        id: v4(),
-        ...task
+        ...task,
+        id: v4()
+      }
+    });
+  }
+
+  const updateTask = (task) => {
+    dispatch({
+      type: 'tasks/update',
+      payload: {
+        task
       }
     });
   }
@@ -47,6 +56,7 @@ export const ContextProvider = ({ children }) => {
       value={{
         tasks: state.tasks,
         createTask,
+        updateTask,
         deleteTask
       }}
     >

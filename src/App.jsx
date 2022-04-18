@@ -16,8 +16,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/create-task" element={<TasksForm />} />
+          <Route path="/update-task/:taskId" element={<TasksForm />} />
           <Route index element={<TasksList />} />
-          <Route path="*" element={<h1>404</h1>} />
+          <Route path="*" element={<h1 className="text-8xl font-semibold text-yellow-300 text-center">404</h1>} />
         </Routes>
       </Router>
     </ContextProvider>
